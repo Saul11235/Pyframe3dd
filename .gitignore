@@ -1,0 +1,9 @@
+local_install.py
+
+*.pyc
+*.swp
+*.egg-info
+
+/pycache
+
+
