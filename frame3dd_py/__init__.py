@@ -6,22 +6,31 @@
 #  http://frame3dd.sourceforge.net/
 #
 #  frame3dd_py package
-#  
+#  Edwin Saul PM
 #
 
 try:    from .__all_classes__ import __all_classes__
-except: from __all_classes__ import __all_classes__
+except: from __all_classes__  import __all_classes__
 
-# add subclasses in current path
-__exceptions_class_herency=[]
-__class_for_herency=__all_classes__(__exceptions_class_herency)
+try:    from .code_generator import input_code_class 
+except: from code_generator  import input_code_class
 
-class  structure(__class_for_herency):
+#creating class for generate  code ------------------------
 
+class input_code(input_code_class):
+    pass
+
+# creatin class for structural modeling -------------------
+
+exceptions=[
+        "code_generator",
+        ]
+class_for_heritage=__all_classes__(exceptions)
+
+class  structure(class_for_heritage):
     def __init__(self):
         # system variables
         self.frame3dd_command="frame3dd"
-
         print("created new structure")
 
 
