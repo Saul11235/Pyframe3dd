@@ -10,6 +10,8 @@ exceptions=[
         ]
 requeriments=__all_classes__(exceptions)
 
+#---------------------------------------------
+
 class input_code_class(requeriments):
     
     def __init__(self):
