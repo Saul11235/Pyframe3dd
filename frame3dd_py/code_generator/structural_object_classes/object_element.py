@@ -2,7 +2,7 @@
 # all name variables are based on frame3dd doc 
 # by Edwin Saul PM
 
-class element:
+class class_element:
 
     def __init__(self,n1,n2,Ax,Asy,Asz,Jx,Iy,Iz,E,G,roll,density):
         self.n1       = n1   # node origin
@@ -22,9 +22,10 @@ class element:
         self.roll     = roll    # rotation  section
         self.density  = density # density   section
 
-
-
-        
-         
-
+    def get_data_element(self):
+        return [self.n1, self.n2,
+                self.Ax, self.Asy, self.Asz,
+                self.Jx, self.Iy,  self.Iz,
+                self.E,  self.G,   self.roll, self.density
+                ]
 

@@ -30,6 +30,6 @@ class class_node:
         return [self.x, self.y, self.z, self.radius]
 
     def get_restrictions_list(self):
-        return [self.Rx,  self,Ry,  self.Rz,
+        return [self.Rx,  self.Ry,  self.Rz,
                 self.Rxx, self.Ryy, self.Rzz]
 

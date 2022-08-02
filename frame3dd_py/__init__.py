@@ -17,11 +17,6 @@ class input_code(input_code_class):
 
 #---------------------------------------------------
 
-try:    from .model_structure import class_structure
-except: from model_structure  import class_structure
-
-class  structure(class_structure):
-    pass
 
 
 
