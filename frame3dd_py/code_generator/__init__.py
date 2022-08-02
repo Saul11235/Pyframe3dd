@@ -1,6 +1,7 @@
 # code generator 
 # for frame3dd input files
 
+
 try:    from .__all_classes__ import __all_classes__
 except: from __all_classes__  import __all_classes__
 
@@ -35,7 +36,7 @@ class input_code_class(requeriments):
             # 1 - include geometry stiffness effects
 
         self.number_of_nodes    = 0
-
+        self.list_nodes         = []
 
 
     def get_code(self): return concatenate(self)

@@ -1,7 +1,7 @@
 # code  generator for frame3dd syntax input file
 # by Edwin Saul PM
 
-def format(object_list):
+def data_format(object_list):
     
     list_string=[]
     for line_list in object_list:

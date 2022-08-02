@@ -2,9 +2,10 @@
 
 from frame3dd_py import input_code
 
-code=input_code()
-print("object input_code created!")
-input_code=code.get_code()
-print("*"*100)
-print(input_code)
+obj=input_code()
+#obj.node(0,0,0,0)
+#obj.node(1,0,0,0)
+#obj.node(0,0,0,0)
+print(obj.get_code())
+
 
