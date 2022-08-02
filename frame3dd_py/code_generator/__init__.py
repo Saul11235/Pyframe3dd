@@ -11,9 +11,11 @@ except: from concatenate_code  import concatenate
 try:
     from .structural_object_classes import object_node
     from .structural_object_classes import object_element
+    from .structural_object_classes import object_load_case
 except:
     from structural_object_classes import object_node
     from structural_object_classes import object_element
+    from structural_object_classes import object_load_case
 
 exceptions=[
         "concatenate_code",
@@ -27,8 +29,9 @@ class input_code_class(requeriments):
     
     def __init__(self):
         #self.__structural_object=structural_object_classes
-        self.class_node    = object_node.class_node
-        self.class_element = object_element.class_element
+        self.class_node      = object_node.class_node
+        self.class_element   = object_element.class_element
+        self.class_load_case = object_load_case.class_load_case
         self.reset()
 
     def reset(self):
