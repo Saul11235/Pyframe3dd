@@ -12,8 +12,6 @@
 try:    from .code_generator import input_code_class 
 except: from code_generator  import input_code_class
 
-#creating class for generate  code 
-
 class input_code(input_code_class):
     pass
 
@@ -21,8 +19,6 @@ class input_code(input_code_class):
 
 try:    from .model_structure import class_structure
 except: from model_structure  import class_structure
-
-# creatin class for structural modeling
 
 class  structure(class_structure):
     pass
