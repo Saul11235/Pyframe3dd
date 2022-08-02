@@ -1,7 +1,8 @@
 # code  generator for frame3dd syntax input file
 # by Edwin Saul PM
 
-#try:    from .DEF_node import class_node
+#try:    import structural_object_classes
+#except: from .. import structural_object_classes
 #except: from DEF_node  import class_node
 
 
@@ -13,5 +14,3 @@ class  set_node:
         self.number_of_nodes += 1
         return self.number_of_nodes
 
-
-    

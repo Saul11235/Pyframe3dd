@@ -11,8 +11,7 @@ except: from FUNC_concatenate_code  import concatenate
 exceptions=[
         "FUNC_data_to_string.py",
         "FUNC_concatenate_code.py",
-        "DEF_element.py",
-        "DEF_node.py"
+        "object_classes"
         ]
 requeriments=__all_classes__(exceptions)
 
