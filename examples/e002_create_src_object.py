@@ -23,7 +23,7 @@ obj.element(1,  3,  9.1, 8,   7,   6,   5,  4,  3, 2, 2.1, 2.1)
 
 # set gravity on current  load case
 #           gx  gy  gz
-obj.gravity(0,  0,  -9.81)
+obj.gravity(10,  1.30,  -9.81)
 
 print(obj.get_code())
 

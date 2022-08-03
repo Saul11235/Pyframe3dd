@@ -32,7 +32,7 @@ def concatenate_function(obj):
         wr(str(obj.number_of_nodes)+" # number of nodes")
     table_nodes =  [] ;var =  0
     if use_comments:
-        table_nodes+=[["#node ","x-coord ","y-coord ",
+        table_nodes+=[["# node ","x-coord ","y-coord ",
             "z-coord ","radius "]]
 
     for Nnode in range(obj.number_of_nodes):
@@ -50,7 +50,7 @@ def concatenate_function(obj):
         wr(str(obj.number_of_nodes)+" # nodes know restr.")
     table_nodes =  [] ;var =  0
     if use_comments:
-        table_nodes+=[["#node ","rx ","ry ","rz ",
+        table_nodes+=[["# node ","rx ","ry ","rz ",
             "rxx ","ryy ","rzz "]]
     for Nnode in range(obj.number_of_nodes):
         obj_node = obj.list_nodes[Nnode]
@@ -67,7 +67,7 @@ def concatenate_function(obj):
         wr(str(obj.number_of_elements)+" # number of elements")
     table_elem =  []; var = 0
     if use_comments:
-        table_elem+=[["#element ","n1 ","n2 ",
+        table_elem+=[["# element ","n1 ","n2 ",
             "Ax ","Asy ","Asz ","Jx ","Iy ","Iz ",
             "E ","G ","roll ","density"
             ]]
@@ -84,28 +84,28 @@ def concatenate_function(obj):
         wr("")
         shear_effects = obj.shear_effects; line = []
         if shear_effects:
-            line=[1,"#shear effects included"]
+            line=[1,"# shear effects included"]
         else: 
-            line=[0,"#no shear effects included"]   
+            line=[0,"# no shear effects included"]   
         table_configs.append(line[:])   
         geometry_stiffness= obj.geometry_stiffness
         if geometry_stiffness:
-            line=[1,"#geometry stiffness effects included"]
+            line=[1,"# geometry stiffness effects included"]
         else:
-            line=[0,"#no geometry stiffness effects included"]
+            line=[0,"# no geometry stiffness effects included"]
         table_configs.append(line[:])
         x=obj.exageration_static
-        line=[x,"#exageration factor for static deformations"]
+        line=[x,"# exageration factor for static deformations"]
         table_configs.append(line[:])
         sc=obj.scale_for_3d_plot
-        line=[sc,"#zoom scale for 3d ploting"]
+        line=[sc,"# zoom scale for 3d ploting"]
         table_configs.append(line[:])
         increment_axis_x=obj.increment_axis_x
         if increment_axis_x==-1:
-            line=[-1,"#skip internal forces calculations"]
+            line=[-1,"# skip internal forces calculations"]
         else:
             line=[increment_axis_x,
-        "#delta x-axis for frame element internal force data"]
+        "# delta x-axis for frame element internal force data"]
         table_configs.append(line[:])    
     else:
         table_configs=[

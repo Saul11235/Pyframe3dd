@@ -34,6 +34,11 @@ class class_load_case:
         # prescribed displacements
         # [#node   x-disp  y-disp z-disp x-rot y-rot z-rot ]
         self.prescribed_displacements    = []
+        
+    def set_gravity(self,gx,gy,gz):
+        self.gX = gx
+        self.gY = gy
+        self.gZ = gz
 
     def set_load_nodes(self,node,xl,yl,zl,xm,ym,zm):
         list_var=[node,xl,yl,zl,xm,ym,zm]
@@ -60,15 +65,46 @@ class class_load_case:
         self.prescribed_displacements.append(list_var)
 
     def is_valid_load_case(self):
-        pass
 
+        gravity=False
+        if self.gX!=0 or self.gY!=0 or self.gZ!=0:
+            gravity=True
 
+        #--------------------------
 
+        have_loads       = False    
+        if len(self.load_nodes):
+            have_loads   = True
 
+        have_loads_u     = False
+        if len(self.load_uniformly): 
+            have_loads_u = True
 
+        have_loads_t     = False
+        if len(self.trapezoidally_load):
+            have_loads_t = True
 
+        have_loads_c     = False
+        if len(self.concentrated_interior_loads):
+            have_loads_c = True
 
+        have_loads_tmp   = False
+        if len(self.temperature_loads):
+            have_loads_tmp=True
 
+        have_desplacements=False
+        if len(self.prescribed_displacements):
+            have_desplacements = True
 
+        #------------------
 
+        loads=False
+        if have_loads or have_loads_u or have_loads_t or have_loads_c or have_loads_tmp or have_desplacements:
+            loads=True
+
+        #------------------
+        if loads or gravity:
+            return True
+        else:
+            return  False
 
