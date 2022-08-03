@@ -35,5 +35,40 @@ class class_load_case:
         # [#node   x-disp  y-disp z-disp x-rot y-rot z-rot ]
         self.prescribed_displacements    = []
 
+    def set_load_nodes(self,node,xl,yl,zl,xm,ym,zm):
+        list_var=[node,xl,yl,zl,xm,ym,zm]
+        self.load_nodes.append(list_var)
+
+    def set_load_uniformly(self,element,xu,yu,zu):
+        list_var=[element,xu,yu,zu]
+        self.load_uniformly.append(list_var)
+
+    def set_trapezoidally(self,element,xx1,xx2,Wx1,Wx2,   xy1,xy2,Wy1,Wy2  ,xz1,xz2,Wz1,Wz2):
+        list_var=[element,xx1,xx2,Wx1,Wx2,   xy1,xy2,Wy1,Wy2  ,xz1,xz2,Wz1,Wz2]
+        self.trapezoidally_load.append(list_var)
+        
+    def set_concentrated(self,element,xload,yload,zload,xlocation):
+        list_var=[element,xload,yload,zload,xlocation]
+        self.concentrated_interior_loads.append(list_var)
+
+    def set_temperature_load(self,element,coef, yd, zd, deltaTypositive, deltaTynegative, deltaTzpositive, deltaTznegative):
+        list_var=[element,coef, yd, zd, deltaTypositive, deltaTynegative, deltaTzpositive, deltaTznegative]
+        self.temperature_loads.append(list_var)
+
+    def set_displacements(self,node,xd,yd,zd,xr,yr,zr):
+        list_var=[node,xd,yd,zd,xr,yr,zr]
+        self.prescribed_displacements.append(list_var)
+
+    def is_valid_load_case(self):
+        pass
+
+
+
+
+
+
+
+
+
 
 
