@@ -62,10 +62,16 @@ class input_code_class(requeriments):
         self.list_elements      = [] # [  object_element  ]
 
         # load cases
-        self.number_of_load_cases=0  #max 30 load cases
-        self.list_load_cases    = [] # []
+        self.number_of_load_cases = 1  #max 30 load cases
+        self.current_load_case    = self.class_load_case()
+        self.list_load_cases      = [] # []
 
+        #  dynamic analisys
+        self.number_of_dynamic_modes = 0
+            # if number_of_dynamic_modes = 0 the analisys must be only static
+            # 
 
+        
  
     def get_code(self): return concatenate(self)
 

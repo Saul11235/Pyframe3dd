@@ -4,6 +4,10 @@
 try:    from .data_to_string import data_format
 except: from data_to_string  import data_format
 
+try:    from .write_load_cases import write_load_cases
+except: from write_load_cases  import write_load_cases
+
+
 def concatenate_function(obj):
 
     #  function to create source for input to frame3dd
@@ -100,11 +104,9 @@ def concatenate_function(obj):
         if increment_axis_x==-1:
             line=[-1,"#skip internal forces calculations"]
         else:
-            line=[increment_axis_x,""]
+            line=[increment_axis_x,
+        "#delta x-axis for frame element internal force data"]
         table_configs.append(line[:])    
-
-
-
     else:
         table_configs=[
                 [obj.shear_effects],
@@ -115,11 +117,8 @@ def concatenate_function(obj):
                 ]
     wr(data_format(table_configs))
 
-        
-
-
-
-    #----------------------------
+    #WRITE LOAD CASES----------------------------
+    write_load_cases(wr,obj)
 
     return obj_code.get_code()
 
