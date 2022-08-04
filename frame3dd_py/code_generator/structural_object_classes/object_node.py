@@ -32,4 +32,10 @@ class class_node:
     def get_restrictions_list(self):
         return [self.Rx,  self.Ry,  self.Rz,
                 self.Rxx, self.Ryy, self.Rzz]
+    
+    def is_free(self):
+        if self.Rx or self.Ry or self.Rz or self.Rxx or self.Ryy or self.Rzz:
+            return False
+        else:
+            return True
 

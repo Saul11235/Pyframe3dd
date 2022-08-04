@@ -32,8 +32,11 @@ class  set_node:
             if (Nnode>0) and (Nnode<=self.number_of_nodes):
                 obj_node=self.list_nodes[Nnode-1]
                 tuple_rstr=tuple(list_restrictions)
-                obj_node.set_restrictions(*tuple_rstr)
-                return  True
+                if tuple_rstr==tuple([0,0,0,0,0,0]):
+                    return False
+                else:
+                    obj_node.set_restrictions(*tuple_rstr)
+                    return  True
             else:return False
         return False
 

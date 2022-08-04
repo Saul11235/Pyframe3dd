@@ -1,5 +1,9 @@
 local_install.py
 
+*.out
+*.plt
+*.3dd
+
 *.pyc
 *.swp
 *.egg-info

@@ -7,6 +7,9 @@ except: from data_to_string  import data_format
 try:    from .write_load_cases import write_load_cases
 except: from write_load_cases  import write_load_cases
 
+try:    from .write_dynamics  import write_dyn
+except: from write_dynamics   import write_dyn
+
 
 def concatenate_function(obj):
 
@@ -44,10 +47,10 @@ def concatenate_function(obj):
 
     # NODE RESTRICTIONS --------------------------------
     if not(use_comments) :  
-        wr(obj.number_of_nodes)
+        wr(obj.num_nodes_with_reactions())
     else:
         wr("")
-        wr(str(obj.number_of_nodes)+" # nodes know restr.")
+        wr(str(obj.num_nodes_with_reactions())+" # nodes know restr.")
     table_nodes =  [] ;var =  0
     if use_comments:
         table_nodes+=[["# node ","rx ","ry ","rz ",
@@ -55,7 +58,8 @@ def concatenate_function(obj):
     for Nnode in range(obj.number_of_nodes):
         obj_node = obj.list_nodes[Nnode]
         l_file   = [Nnode+1]+obj_node.get_restrictions_list()
-        table_nodes.append(l_file)
+        if not(obj_node.is_free()):
+            table_nodes.append(l_file)
     if obj.number_of_nodes:    
         wr( data_format(table_nodes) )
 
@@ -119,6 +123,10 @@ def concatenate_function(obj):
 
     #WRITE LOAD CASES----------------------------
     write_load_cases(wr,obj)
+
+
+    #WRITE DYNAMICS CASES -----------------------
+    write_dyn(wr,obj,use_comments)
 
     return obj_code.get_code()
 
