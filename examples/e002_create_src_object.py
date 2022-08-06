@@ -49,7 +49,7 @@ a.close()
 
 from os import system
 
-system("frame3dd -i generated.3dd  -o end")
+#system("frame3dd -i generated.3dd  -o end.out -w matrix.out")
 
 
 

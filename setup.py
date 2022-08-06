@@ -8,7 +8,7 @@ setup(
         description  = "estructural analysis using frame3dd",
         author       = "Edwin Pareja",
         author_email = "edwinsaulpm@gmail.com",
-        url          = "https:www.illarisoft.com",
+        url          = "https://www.illarisoft.com/",
         packages=find_packages(),
 
         )
