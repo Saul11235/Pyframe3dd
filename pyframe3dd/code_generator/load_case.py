@@ -81,9 +81,15 @@ class  set_load_case:
 
     #---------------------------
 
-    def load_trapezoidally(self):
-        pass
-
+    def load_trapezoidally(self,element,xx1,xx2,wx1,wx2,xy1,xy2,wy1,wy2,xz1,xz2,wz1,wz2):
+        list_load=[element,xx1,xx2,wx1,wx2,xy1,xy2,wy1,wy2,xz1,xz2,wz1,wz2]
+        if list_is_num(list_load):
+            if self.__is_element(element):
+                self.current_load_case.set_trapezoidally(*tuple(list_load))
+                return True
+            else: return False
+        else:
+            return False
 
 
 

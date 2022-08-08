@@ -32,17 +32,21 @@ def write_a_load_case(obj,number,total,use_comments,wr):
     # SEE DATA
     data_load_nodes         = obj.load_nodes
     num_load_nodes          = len(data_load_nodes)
+    #--------------------------
     data_load_uniformly     = obj.load_uniformly
     num_load_uniformly      = len(data_load_uniformly)
+    #--------------------------
     data_trapezoidally_load = obj.trapezoidally_load
     num_trapezoidally_load  = len(data_trapezoidally_load)
+    #--------------------------
     data_concentrated_loads = obj.concentrated_interior_loads
     num_concentrated_loads  = len(data_concentrated_loads)
+    #--------------------------
     data_temperature_loads  = obj.temperature_loads
     num_temperature_loads   = len(data_temperature_loads)
+    #--------------------------
     data_displacements      = obj.prescribed_displacements
     num_displacements       = len(data_displacements)
-
     #-----------------------------
     # HEADERS 
     headers=[]
@@ -100,24 +104,74 @@ def write_a_load_case(obj,number,total,use_comments,wr):
     # WRITE - TRAPEZOIDALLY DISTRIBUTED LOADS
     if num_load_uniformly and use_comments:wr("")
     wr(headers[2])
+    data_list=[]
+    if use_comments:
+        data_list=[["#element ","start ","end  ","start-load ","end-load "]]
+    #........................
+    first=True
+    for x in data_trapezoidally_load:
+        #------
+        if first: first = False
+        else:
+            if use_comments:
+                data_list.append(["#---","---","---","---","---"])
+        #-----
+        line=[x[0],x[1],x[2],x[3],x[4]]
+        if use_comments:
+            line.append("# x axis - el."+str(x[0]))
+        data_list.append(line[:])    
+        line=["",x[5],x[6],x[7],x[8]]
+        if use_comments:
+            line.append("# y axis - el."+str(x[0]))
+        data_list.append(line[:])    
+        line=["",x[9],x[10],x[11],x[12]]
+        if use_comments:
+            line.append("# z axis - el."+str(x[0]))
+        data_list.append(line[:])    
 
 
+    #........................
+    if num_trapezoidally_load:
+        wr(data_format(data_list))
 
 
     #----------------------------
     # WRITE - CONCENTRATED INTERIOR POINT LOADS
     if num_trapezoidally_load and use_comments:wr("")
     wr(headers[3])
+    data_list=[]
+    if use_comments:
+        data_list=[["#element ","x-load ","y-load ","z-load ","x-location  "]]
+    for x in data_concentrated_loads:
+        data_list.append(x)
+    if num_concentrated_loads:
+        wr(data_format(data_list))
+
+ 
 
     #----------------------------
     # WRITE - TEMPERATURE LOADS
     if num_concentrated_loads and use_comments:wr("")
     wr(headers[4])
+    data_list=[]
+    if use_comments:
+        data_list=[["#element ","coef. ","y-depth ","z-depth ","delta-Ty+ ","delta-Ty- ","delta-Tz+ ","delta-Tz+ "]]
+    for x in data_temperature_loads:
+        data_list.append(x)
+    if num_temperature_loads:
+        wr(data_format(data_list))
 
     #----------------------------
     # WRITE - DISPLACEMENTS
     if num_temperature_loads and use_comments:wr("")
     wr(headers[5])
+    data_list=[]
+    if use_comments:
+        data_list=[["#node ","x-displ ","y-displ ","x-rotation ","y-rotation ","z-rotation "]]
+    for x in data_displacements:
+        data_list.append(x)
+    if num_displacements:
+        wr(data_format(data_list))
 
     #----------------------------
 

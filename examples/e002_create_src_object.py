@@ -40,7 +40,10 @@ obj.load_dist_element(2,       22,       32,       42)
 
 
 # load trapezoidally distributed element loads
-obj.load_trapezoidally()
+#  use :set nowrap on vim
+#                     element  xx1  xx2  wx1  wx2  xy1  xy2  wy1  wy2  xz1  xz2  wz1  wz2 
+#obj.load_trapezoidally(1,      11,  12,  13,  14,  21,  22,  23,  24,  31,  32,  33,  34  )
+obj.load_trapezoidally(2,      51,  52,  53,  54,  61,  62,  63,  64,  71,  72,  73,  74  )
 
 #obj.new_load_case()
 
