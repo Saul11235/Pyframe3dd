@@ -91,7 +91,40 @@ class  set_load_case:
         else:
             return False
 
+    #---------------------------
+
+    def load_concentrated(self,element,xload,yload,zload,xdist):
+        list_load=[element,xload,yload,zload,xdist]
+        if list_is_num(list_load):
+            if self.__is_element(element):
+                self.current_load_case.set_concentrated(*tuple(list_load))
+                return True
+            else: return False
+        else: return False
+
+    #--------------------------
+
+    def load_temperature(self,element,coeficient,ydepth,zdepth,deltatyplus,deltatyminus,deltatzplus,deltatzminus):
+        list_load=[element,coeficient,ydepth,zdepth,deltatyplus,deltatyminus,deltatzplus,deltatzminus]
+        if list_is_num(list_load):
+            if self.__is_element(element):
+                self.current_load_case.set_temperature_load(*tuple(list_load))
+                return True
+            else: return False
+        else: return False
+
+    #---------------------------
+
+    def set_displacements(self,node,dx,dy,dz,rx,ry,rz):
+        list_load=[node,dx,dy,dz,rx,ry,rz]
+        if list_is_num(list_load):
+            if self.__is_node(node):
+                self.current_load_case.set_displacements(*tuple(list_load))
+                return True
+            else: return False
+        else: return False
 
 
 
+        pass
 

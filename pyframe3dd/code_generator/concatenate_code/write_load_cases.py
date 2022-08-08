@@ -155,7 +155,7 @@ def write_a_load_case(obj,number,total,use_comments,wr):
     wr(headers[4])
     data_list=[]
     if use_comments:
-        data_list=[["#element ","coef. ","y-depth ","z-depth ","delta-Ty+ ","delta-Ty- ","delta-Tz+ ","delta-Tz+ "]]
+        data_list=[["#element ","coef. ","y-dpt ","z-dpt ","dTy+ ","dTy- ","dTz+ ","dTz+ "]]
     for x in data_temperature_loads:
         data_list.append(x)
     if num_temperature_loads:
@@ -167,7 +167,7 @@ def write_a_load_case(obj,number,total,use_comments,wr):
     wr(headers[5])
     data_list=[]
     if use_comments:
-        data_list=[["#node ","x-displ ","y-displ ","x-rotation ","y-rotation ","z-rotation "]]
+        data_list=[["#node ","x-disp ","y-disp ","z-disp ","x-rot ","y-rot ","z-rot "]]
     for x in data_displacements:
         data_list.append(x)
     if num_displacements:
