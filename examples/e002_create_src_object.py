@@ -1,6 +1,6 @@
 # frame3dd_py  writed by:  Edwin Saul PM 
 
-from frame3dd_py import input_code
+from pyframe3dd import input_code
 
 obj=input_code()
 obj.comments()  #view the  comments in the code generated

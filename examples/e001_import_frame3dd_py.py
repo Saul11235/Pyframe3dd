@@ -1,6 +1,6 @@
 # frame3dd_py  writed by:  Edwin Saul PM 
 
-import frame3dd_py 
-print("frame3dd_py  imported!")
+import pyframe3dd
+print("pyframe3dd imported!")
 
 
