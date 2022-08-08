@@ -50,6 +50,7 @@ class  set_load_case:
     def gravity(self,gx,gy,gz):
         if list_is_num([gx,gy,gz]):
             self.current_load_case.set_gravity(gx,gy,gz)
+            return True
         else:
             return False
 
@@ -61,11 +62,30 @@ class  set_load_case:
             if self.__is_node(node):
                 self.current_load_case.set_load_nodes(*tuple(list_load))
                 return True
+            else:
+                return False
+        else: return False
+
+    #---------------------------    
+
+    def load_dist_element(self,element,load_x,load_y,load_z):
+        list_load=[element,load_x,load_y,load_z]
+        if list_is_num(list_load):
+            if self.__is_element(element):
+                self.current_load_case.set_load_uniformly(*tuple(list_load))
+                return True
+            else:
+                return False
+        else:
             return False
-        return False
+
+    #---------------------------
+
+    def load_trapezoidally(self):
+        pass
 
 
 
 
 
- 
+

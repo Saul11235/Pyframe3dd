@@ -33,12 +33,20 @@ obj.gravity(10,  1.30,  -9.81)
 obj.load_node(2,    11,    12,    13,    14,    15,    16)
 obj.load_node(1,    10,    12,    13,    14,    15,    16)
 
+# load distributed on element
+#                    element   x--load   y--load   z--load
+obj.load_dist_element(1,       20,       30,       40)
+obj.load_dist_element(2,       22,       32,       42)
 
 
+# load trapezoidally distributed element loads
+obj.load_trapezoidally()
 
 #obj.new_load_case()
 
+
 #obj.gravity(1,2,3)
+
 
 
 print(obj.get_code())
@@ -47,7 +55,7 @@ a=open("generated.3dd","w")
 a.write(obj.get_code())
 a.close()
 
-from os import system
+#from os import system
 
 #system("frame3dd -i generated.3dd  -o end.out -w matrix.out")
 
