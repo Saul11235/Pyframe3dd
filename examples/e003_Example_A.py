@@ -108,6 +108,13 @@ obj.load_node(6,    0,    -20,    0,     0,     0,     0)
 #----------------------------------------------
 obj.new_load_case() 
 
+# load_node   node  xload  yload  zload  xmom   ymom   zmom
+obj.load_node(3,    20,    0,    0,     0,     0,     0)
+obj.load_node(4,    10,    0,    0,     0,     0,     0)
+obj.load_node(5,    20,    0,    0,     0,     0,     0)
+
+
+
 
 
 
