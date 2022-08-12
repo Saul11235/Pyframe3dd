@@ -1,13 +1,14 @@
 
-# Frame3dd_py package
+# pyframe3dd package
 
 a  package for easy  modelying structural and elastic analisys in python
 scripts, import via pip
 
-<code>pip install frame3dd_py</code>
+<code>pip install pyframe3dd</code>
 
 for use in python programs
-<code>import frame3dd_py</code>
+
+<code>import pyframe3dd</code>
 
 
 
