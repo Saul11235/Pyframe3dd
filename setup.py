@@ -3,7 +3,7 @@ from setuptools  import setup
 
 setup(
 
-        name         = "frame3dd_py",
+        name         = "pyframe3dd",
         version      = "0.0.1",
         description  = "estructural analysis using frame3dd",
         author       = "Edwin Pareja",
