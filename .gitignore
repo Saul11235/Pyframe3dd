@@ -5,6 +5,10 @@ push_package.py
 *.plt
 *.3dd
 
+Ks
+Kd
+Md
+
 *.pyc
 *.swp
 *.egg-info
