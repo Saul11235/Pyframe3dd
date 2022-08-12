@@ -119,8 +119,7 @@ obj.load_node(5,    20,    0,    0,     0,     0,     0)
 
 
 
-
-print(obj.get_code())
+#print(obj.get_code())
 
 
 

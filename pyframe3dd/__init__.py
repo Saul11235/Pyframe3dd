@@ -9,12 +9,18 @@
 #  Edwin Saul PM
 #
 
-try:    from .code_generator import input_code_class 
-except: from code_generator  import input_code_class
+try:    from .__code_generator import input_code_class  as __input
+except: from __code_generator  import input_code_class  as __input
 
-class input_code(input_code_class):
+class input_code(__input):
     pass
 
+
+try:    from .__run_code import run_code_class as __run
+except: from __run_code  import run_code_class as __run
+
+class run_code(__run):
+    pass
 #---------------------------------------------------
 
 
